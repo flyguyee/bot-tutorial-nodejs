@@ -63,8 +63,8 @@ function postMessage() {
   botResponse = cool() + " flyguyee modified";
   
   options = {
-    hostname: 'api.groupme.com/v3',
-    path: '/groups/40766646/messages',
+    hostname: 'api.groupme.com',
+    path: '/v3/groups/40766646/messages',
     method: 'POST',
     headers: {
             'content-type': 'application/json',
