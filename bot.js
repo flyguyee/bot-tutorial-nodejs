@@ -3,6 +3,7 @@ var cool = require('cool-ascii-faces');
 
 var botID = process.env.BOT_ID;
 var accT = process.env.ACCESS_TOKEN;
+var d = new Date();
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
@@ -73,7 +74,7 @@ function postMessage() {
   };
   
   body = {"message": {
-            "source_guid" : "rand",
+            "source_guid" : d.getTime().toString(),
             "text" : botResponse
          } 
   };
