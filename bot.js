@@ -3,7 +3,6 @@ var cool = require('cool-ascii-faces');
 
 var botID = process.env.BOT_ID;
 var accT = process.env.ACCESS_TOKEN;
-var d = new Date();
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
@@ -74,7 +73,7 @@ function postMessage() {
   };
   
   body = {"message": {
-            "source_guid" : d.getTime() + ' ',
+            "source_guid" : new Date().getTime() + ' ',
             "text" : botResponse
          } 
   };
@@ -86,7 +85,6 @@ function postMessage() {
         //neat
       } else {
         console.log('rejecting bad status code ' + res.statusCode);
-        console.log(d.getTime() + ' ');
       }
   });
 
