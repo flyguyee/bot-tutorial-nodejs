@@ -72,10 +72,10 @@ function postMessage() {
    }
   };
   
-  body = {"message": "{
+  body = {"message": {
             "source_guid" : "rand",
             "text" : botResponse
-         }" 
+         } 
   };
 
   console.log('sending ' + botResponse + ' to ' + botID);
