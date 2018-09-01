@@ -67,14 +67,15 @@ function postMessage() {
     path: '/groups/40766646/messages',
     method: 'POST',
     headers: {
-            'Content-Type': 'application/json',
+            'content-type': 'application/json',
             'x-access-token': accT
    }
   };
-
-  body = {
-    "source_guid" : "rand",
-    "text" : botResponse
+  
+  body = {'message': {
+            'source_guid' : 'rand',
+            'text' : botResponse
+         } 
   };
 
   console.log('sending ' + botResponse + ' to ' + botID);
