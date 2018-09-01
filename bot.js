@@ -58,18 +58,20 @@ function postMessageOld() {
 
 
 function postMessage() {
-  var botResponse, options, body, botReq;
+  var botResponse, options, body, botReq, headers1;
 
   botResponse = cool() + " flyguyee modified";
-
+  
+   headers1 = {
+            'Content-Type': 'application/json',
+            'x-access-token': accT
+   }
+  
   options = {
     hostname: 'api.groupme.com/v3',
     path: '/groups/40766646/messages',
-    method: 'POST'
-    headers: {
-            'Content-Type': 'application/json',
-            'x-access-token': accT
-    }
+    method: 'POST',
+    headers: headers1
   };
 
   body = {
