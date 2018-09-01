@@ -54,13 +54,16 @@ function postMessageOld() {
   botReq.end(JSON.stringify(body));
 }
 
+
+
+
 function postMessage() {
   var botResponse, options, body, botReq;
 
   botResponse = cool() + " flyguyee modified";
 
   options = {
-    hostname: 'api.groupme.com',
+    hostname: 'api.groupme.com/v3',
     path: '/groups/40766646/messages?token='+accT,
     method: 'POST'
   };
