@@ -66,10 +66,10 @@ function postMessage() {
     hostname: 'api.groupme.com/v3',
     path: '/groups/40766646/messages',
     method: 'POST'
-    headers: '{
+    headers: {
             'Content-Type': 'application/json',
-            'x-access-token': accT,
-    }'
+            'x-access-token': accT
+    }
   };
 
   body = {
