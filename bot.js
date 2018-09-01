@@ -74,7 +74,7 @@ function postMessage() {
   };
   
   body = {"message": {
-            "source_guid" : d.getTime().toString(),
+            "source_guid" : d.getTime() + ' ',
             "text" : botResponse
          } 
   };
