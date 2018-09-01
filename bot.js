@@ -66,10 +66,10 @@ function postMessage() {
     hostname: 'api.groupme.com/v3',
     path: '/groups/40766646/messages',
     method: 'POST'
-    headers: {
+    headers: '{
             'Content-Type': 'application/json',
             'x-access-token': accT,
-    }
+    }'
   };
 
   body = {
@@ -80,7 +80,6 @@ function postMessage() {
   console.log('sending ' + botResponse + ' to ' + botID);
 
   botReq = HTTPS.request(options, function(res) {
-      console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
       if(res.statusCode == 202) {
         //neat
       } else {
