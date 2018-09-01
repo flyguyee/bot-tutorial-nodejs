@@ -67,7 +67,7 @@ function postMessage() {
     path: '/groups/40766646/messages',
     method: 'POST'
     headers: {
-            'content-type': 'application/json',
+            'Content-Type': 'application/json',
             'x-access-token': accT,
     }
   };
@@ -80,6 +80,7 @@ function postMessage() {
   console.log('sending ' + botResponse + ' to ' + botID);
 
   botReq = HTTPS.request(options, function(res) {
+      console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
       if(res.statusCode == 202) {
         //neat
       } else {
