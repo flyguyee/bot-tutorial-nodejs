@@ -26,7 +26,7 @@ function postMessageOld() {
 
   options = {
     hostname: 'api.groupme.com',
-    path: '/v3/bots/post',
+    path: '/v3',
     method: 'POST'
   };
 
@@ -61,7 +61,7 @@ function postMessage() {
 
   options = {
     hostname: 'api.groupme.com',
-    path: '/v3/groups/40766646/messages?token='+accT,
+    path: '/groups/40766646/messages?token='+accT,
     method: 'POST'
   };
 
