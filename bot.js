@@ -86,6 +86,7 @@ function postMessage() {
         //neat
       } else {
         console.log('rejecting bad status code ' + res.statusCode);
+        console.log(d.getTime() + ' ');
       }
   });
 
