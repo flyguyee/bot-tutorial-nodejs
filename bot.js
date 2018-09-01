@@ -2,6 +2,7 @@ var HTTPS = require('https');
 var cool = require('cool-ascii-faces');
 
 var botID = process.env.BOT_ID;
+var accT = process.env.ACCESS_TOKEN;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
@@ -18,7 +19,7 @@ function respond() {
   }
 }
 
-function postMessage() {
+function postMessageOld() {
   var botResponse, options, body, botReq;
 
   botResponse = cool() + " flyguyee modified";
@@ -31,6 +32,41 @@ function postMessage() {
 
   body = {
     "bot_id" : botID,
+    "text" : botResponse
+  };
+
+  console.log('sending ' + botResponse + ' to ' + botID);
+
+  botReq = HTTPS.request(options, function(res) {
+      if(res.statusCode == 202) {
+        //neat
+      } else {
+        console.log('rejecting bad status code ' + res.statusCode);
+      }
+  });
+
+  botReq.on('error', function(err) {
+    console.log('error posting message '  + JSON.stringify(err));
+  });
+  botReq.on('timeout', function(err) {
+    console.log('timeout posting message '  + JSON.stringify(err));
+  });
+  botReq.end(JSON.stringify(body));
+}
+
+function postMessage() {
+  var botResponse, options, body, botReq;
+
+  botResponse = cool() + " flyguyee modified";
+
+  options = {
+    hostname: 'api.groupme.com',
+    path: '/v3/groups/40766646/messages/?token='+accT,
+    method: 'POST'
+  };
+
+  body = {
+    "source_guid" : "rand",
     "text" : botResponse
   };
 
