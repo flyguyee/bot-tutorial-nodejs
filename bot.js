@@ -3,6 +3,7 @@ var cool = require('cool-ascii-faces');
 
 var botID = process.env.BOT_ID;
 var accT = process.env.ACCESS_TOKEN;
+var gID = process.env.GROUP_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
@@ -64,7 +65,7 @@ function postMessage() {
   
   options = {
     hostname: 'api.groupme.com',
-    path: '/v3/groups/40766646/messages',
+    path: '/v3/groups/'+ gID + '/messages',
     method: 'POST',
     headers: {
             'content-type': 'application/json',
